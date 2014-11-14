@@ -1,0 +1,24 @@
+---
+- name: 'Add webupd8team PPA for latest JDK'
+  tags: ['java', 'packages']
+  sudo: 'yes'
+  apt_repository: 'repo=ppa:webupd8team/java'
+
+- name: 'Automatically select the Oracle License'
+  tags: ['java', 'packages']
+  debconf: >
+    name='oracle-java{{ jdk_version }}-installer'
+    question='shared/accepted-oracle-license-v1-1'
+    value='true'
+    vtype='select'
+  changed_when: false
+
+- name: 'Install JDK'
+  tags: ['java', 'packages']
+  sudo: 'yes'
+  apt: >
+    pkg={{ item }}
+    update_cache=yes
+  with_items:
+    - 'oracle-java{{ jdk_version }}-installer'
+    - 'ant'
