@@ -11,20 +11,10 @@
     - 'debconf'
     - 'debconf-utils'
 
-- name: 'Add webupd8team PPA for latest JDK'
+- name: 'Add OpenJDK PPA for latest JDK'
   tags: ['java', 'packages']
   sudo: 'yes'
-  apt_repository: 'repo=ppa:webupd8team/java'
-
-- name: 'Automatically select the Oracle License'
-  tags: ['java', 'packages']
-  sudo: 'yes'
-  debconf: >
-    name='oracle-java{{ jdk_version }}-installer'
-    question='shared/accepted-oracle-license-v1-1'
-    value='true'
-    vtype='select'
-  changed_when: false
+  apt_repository: 'repo=ppa:openjdk-r/ppa'
 
 - name: 'Install JDK'
   tags: ['java', 'packages']
@@ -33,5 +23,4 @@
     pkg={{ item }}
     update_cache=yes
   with_items:
-    - 'oracle-java{{ jdk_version }}-installer'
-    - 'ant'
+    - 'openjdk-{{ jdk_version }}-jdk'
