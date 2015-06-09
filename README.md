@@ -1,10 +1,15 @@
-# Java role for Ansible
+# OpenJDK Java role for Ansible
 
-Installs Java from the webupd8 PPA and applies the specified configuration.
+Installs OpenJDK Java from the OpenJDK PPA and applies the specified configuration.
+
+Forked from [https://github.com/ssilab/ansible-java](https://github.com/ssilab/ansible-java) and adapted for OpenJDK.
+
+Tested on Ubuntu 14.04 Server.
 
 ## Requirements
 
-Tested on Ubuntu 12.04 Server.
+None.
+
 
 ## Role Variables
 
@@ -14,7 +19,7 @@ Tested on Ubuntu 12.04 Server.
 
     - hosts: 'servers'
       roles:
-        - role: 'ssilab.java'
+        - role: 'quarcu.openjdk'
           jdk_version: '7'
 
 # License
