@@ -1,2 +1,3 @@
 ---
 jdk_version: '8'
+jdk_update_apt_cache: 'yes'
