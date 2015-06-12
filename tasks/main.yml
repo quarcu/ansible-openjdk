@@ -21,6 +21,6 @@
   sudo: 'yes'
   apt: >
     pkg={{ item }}
-    update_cache={{ jdk_update_apt_cache }}
+    update_cache=yes
   with_items:
     - 'openjdk-{{ jdk_version }}-jdk'
