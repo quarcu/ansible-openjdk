@@ -24,5 +24,9 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+  # Change java alternatives.
+  - "update-java-alternatives -s /usr/lib/jvm/java-1.8.0-openjdk-amd64"
+  # Show java and javac version.
   - "java -version"
   - "javac -version"
