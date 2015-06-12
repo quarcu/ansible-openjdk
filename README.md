@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/quarcu/ansible-openjdk.svg?branch=master)](https://travis-ci.org/quarcu/ansible-openjdk)
+
 # OpenJDK Java role for Ansible
 
 Installs OpenJDK Java from the OpenJDK PPA and applies the specified configuration.
